@@ -1,3 +1,24 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Payment
+
+
+@admin.register(Payment)
+class PaymentAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'id',
+        'order',
+        'amount_paid',
+        'payment_method',
+        'paid_on',
+    )
+
+    search_fields = (
+        'order__customer__name',
+    )
+
+    list_filter = (
+        'payment_method',
+        'paid_on',
+    )
