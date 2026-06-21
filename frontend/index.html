@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TailorTrack Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <h2>🧵 TailorTrack</h2>
+
+                <p>Smart Tailoring Shop</p>
+
+            </div>
+
+            <ul>
+
+                <li class="active">
+
+                    Dashboard
+
+                </li>
+
+                <li>
+
+                    <a href="pages/customers.html">
+
+                        Customers
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="pages/orders.html">
+
+                        Orders
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="pages/tailors.html">
+
+                        Tailors
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="pages/payments.html">
+
+                        Payments
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="pages/expenses.html">
+
+                        Expenses
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+
+        <main class="main-content">
+
+            <div class="top-bar">
+
+                <h1>Dashboard</h1>
+
+                <div class="date">
+
+                    Tailor Shop Management
+
+                </div>
+
+            </div>
+
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Total Customers</h3>
+
+                    <h2 id="customer-count">
+
+                        0
+
+                    </h2>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <h3>Total Orders</h3>
+
+                    <h2 id="order-count">
+
+                        0
+
+                    </h2>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <h3>Total Revenue</h3>
+
+                    <h2 id="revenue-count">
+
+                        ₹0
+
+                    </h2>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <h3>Total Expenses</h3>
+
+                    <h2 id="expense-count">
+
+                        ₹0
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="sections">
+
+                <div class="box">
+
+                    <h2>
+
+                        Recent Orders
+
+                    </h2>
+
+                    <ul id="recent-orders">
+
+                        <li>
+
+                            Loading...
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <div class="box">
+
+                    <h2>
+
+                        Pending Orders
+
+                    </h2>
+
+                    <ul id="pending-orders">
+
+                        <li>
+
+                            Loading...
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+
+    <script src="js/api.js"></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
