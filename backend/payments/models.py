@@ -27,6 +27,9 @@ class Payment(models.Model):
     )
 
     paid_on = models.DateField()
+    class Meta:
+
+        ordering = ['-paid_on']
 
     def __str__(self):
 

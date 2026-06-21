@@ -30,6 +30,10 @@ class Expense(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True
     )
+    class Meta:
+
+        ordering = ['-expense_date']
+
 
     def __str__(self):
 

@@ -1,90 +1,172 @@
 async function loadDashboard() {
 
-    const customers = await fetchData("customers");
+try {
 
-    const orders = await fetchData("orders");
-
-    const payments = await fetchData("payments");
-
-    const expenses = await fetchData("expenses");
+const customers =
+await fetchData("customers");
 
 
-    document.getElementById("customer-count").innerText =
-        customers.length;
-
-    document.getElementById("order-count").innerText =
-        orders.length;
+const orders =
+await fetchData("orders");
 
 
-    let totalRevenue = 0;
-
-    payments.forEach(payment => {
-
-        totalRevenue += Number(payment.amount_paid || 0);
-
-    });
+const payments =
+await fetchData("payments");
 
 
-    document.getElementById("revenue-count").innerText =
-        `₹${totalRevenue}`;
+const expenses =
+await fetchData("expenses");
 
 
 
-
-    let totalExpense = 0;
-
-    expenses.forEach(expense => {
-
-        totalExpense += Number(expense.amount || 0);
-
-    });
+document.getElementById("customer-count")
+.innerText = customers.length;
 
 
-    document.getElementById("expense-count").innerText =
-        `₹${totalExpense}`;
+document.getElementById("order-count")
+.innerText = orders.length;
 
 
 
-    const recentOrders =
-        document.getElementById("recent-orders");
+let revenue = 0;
 
-    recentOrders.innerHTML = "";
+payments.forEach(payment=>{
+
+revenue += Number(
+payment.amount_paid || 0
+);
+
+});
 
 
-    orders.slice(0,5).forEach(order=>{
-
-        const li =
-            document.createElement("li");
-
-        li.innerText =
-            `${order.dress_type} - ${order.status}`;
-
-        recentOrders.appendChild(li);
-
-    });
+document.getElementById("revenue-count")
+.innerText = `₹${revenue}`;
 
 
 
-    const pendingOrders =
-        document.getElementById("pending-orders");
 
-    pendingOrders.innerHTML = "";
+let totalExpense = 0;
+
+expenses.forEach(expense=>{
+
+totalExpense += Number(
+expense.amount || 0
+);
+
+});
 
 
-    orders
-    .filter(order => order.status.toLowerCase() === "pending")
-    .forEach(order => {
+document.getElementById("expense-count")
+.innerText = `₹${totalExpense}`;
 
-        const li =
-            document.createElement("li");
 
-        li.innerText =
-            order.dress_type;
 
-        pendingOrders.appendChild(li);
+const recentOrders =
+document.getElementById("recent-orders");
 
-    });
+recentOrders.innerHTML = "";
 
+orders.slice(0,5).forEach(order=>{
+
+recentOrders.innerHTML += `
+
+<li>
+
+${order.dress_type} - ${order.status}
+
+</li>
+
+`;
+
+});
+
+
+
+
+const pendingOrders =
+document.getElementById("pending-orders");
+
+pendingOrders.innerHTML = "";
+
+orders
+.filter(order=>
+
+order.status.toLowerCase()
+=== "pending"
+
+)
+
+.forEach(order=>{
+
+pendingOrders.innerHTML += `
+
+<li>
+
+${order.dress_type}
+
+</li>
+
+`;
+
+});
+
+
+
+
+const todayDeliveries =
+document.getElementById("today-deliveries");
+
+todayDeliveries.innerHTML = "";
+
+
+const today =
+new Date()
+.toISOString()
+.split("T")[0];
+
+
+
+const deliveries = orders.filter(order=>
+
+order.delivery_date === today
+
+);
+
+
+
+if(deliveries.length===0){
+
+todayDeliveries.innerHTML =
+
+"<li>No deliveries today</li>";
+
+}
+
+else{
+
+deliveries.forEach(order=>{
+
+todayDeliveries.innerHTML += `
+
+<li>
+
+${order.dress_type}
+
+</li>
+
+`;
+
+});
+
+}
+
+}
+
+catch(error){
+
+console.log(error);
+
+}
 
 }
 

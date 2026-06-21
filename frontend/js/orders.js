@@ -1,30 +1,114 @@
-async function loadOrders(){
+let ordersData = [];
 
-const orders = await fetchData("orders");
+async function loadOrders() {
 
-const tbody =
-document.querySelector("#orders-table tbody");
+    ordersData =
 
-tbody.innerHTML = "";
+        await fetchData(
 
-orders.forEach(order=>{
+            "orders"
 
-tbody.innerHTML += `
+        );
 
-<tr>
+    renderOrders(
 
-<td>${order.dress_type}</td>
+        ordersData
 
-<td>₹${order.amount}</td>
-
-<td>${order.status}</td>
-
-</tr>
-
-`;
-
-});
+    );
 
 }
 
-loadOrders();
+
+function renderOrders(data) {
+
+    const tbody =
+
+        document.querySelector(
+
+            "#orders-table tbody"
+
+        );
+
+
+
+    tbody.innerHTML = "";
+
+
+    data.forEach(order => {
+
+        tbody.innerHTML += `
+
+        <tr>
+
+            <td>${order.dress_type}</td>
+
+            <td>₹${order.amount}</td>
+
+            <td>${order.status}</td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    () => {
+
+        const searchBox =
+
+            document.getElementById(
+
+                "order-search"
+
+            );
+
+
+        if (searchBox) {
+
+            searchBox.addEventListener(
+
+                "input",
+
+                function () {
+
+                    const keyword =
+
+                        this.value.toLowerCase();
+
+
+                    const filtered =
+
+                        ordersData.filter(
+
+                            order =>
+
+                                order.dress_type
+
+                                    .toLowerCase()
+
+                                    .includes(keyword)
+
+                        );
+
+
+                    renderOrders(filtered);
+
+                }
+
+            );
+
+        }
+
+
+        loadOrders();
+
+    }
+
+);

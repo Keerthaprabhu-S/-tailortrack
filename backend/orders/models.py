@@ -43,6 +43,9 @@ class Order(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True
     )
+    class Meta:
+
+        ordering = ['-delivery_date']
 
     def __str__(self):
 

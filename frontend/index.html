@@ -1,227 +1,260 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TailorTrack Dashboard</title>
+<title>TailorTrack Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <aside class="sidebar">
+<aside class="sidebar">
 
-            <div class="logo">
+<div class="logo">
 
-                <h2>🧵 TailorTrack</h2>
+<h2>🧵 TailorTrack</h2>
 
-                <p>Smart Tailoring Shop</p>
+<p>Smart Tailoring Shop</p>
 
-            </div>
+</div>
 
-            <ul>
+<ul>
 
-                <li class="active">
+<li class="active">
 
-                    Dashboard
+Dashboard
 
-                </li>
+</li>
 
-                <li>
+<li>
 
-                    <a href="pages/customers.html">
+<a href="pages/customers.html">
 
-                        Customers
+Customers
 
-                    </a>
+</a>
 
-                </li>
+</li>
 
-                <li>
+<li>
 
-                    <a href="pages/orders.html">
+<a href="pages/orders.html">
 
-                        Orders
+Orders
 
-                    </a>
+</a>
 
-                </li>
+</li>
 
-                <li>
+<li>
 
-                    <a href="pages/tailors.html">
+<a href="pages/tailors.html">
 
-                        Tailors
+Tailors
 
-                    </a>
+</a>
 
-                </li>
+</li>
 
-                <li>
+<li>
 
-                    <a href="pages/payments.html">
+<a href="pages/payments.html">
 
-                        Payments
+Payments
 
-                    </a>
+</a>
 
-                </li>
+</li>
 
-                <li>
+<li>
 
-                    <a href="pages/expenses.html">
+<a href="pages/expenses.html">
 
-                        Expenses
+Expenses
 
-                    </a>
+</a>
 
-                </li>
+</li>
 
-            </ul>
+</ul>
 
-        </aside>
+</aside>
 
+<main class="main-content">
 
+<div class="top-bar">
 
-        <main class="main-content">
+<h1>Dashboard</h1>
 
-            <div class="top-bar">
+<div>
 
-                <h1>Dashboard</h1>
+Welcome, Prabhu 👋
 
-                <div class="date">
+</div>
 
-                    Tailor Shop Management
+</div>
 
-                </div>
 
-            </div>
 
+<div class="cards">
 
+<div class="card">
 
-            <div class="cards">
+<h3>Total Customers</h3>
 
-                <div class="card">
+<h2 id="customer-count">
 
-                    <h3>Total Customers</h3>
+0
 
-                    <h2 id="customer-count">
+</h2>
 
-                        0
+</div>
 
-                    </h2>
 
-                </div>
 
+<div class="card">
 
+<h3>Total Orders</h3>
 
-                <div class="card">
+<h2 id="order-count">
 
-                    <h3>Total Orders</h3>
+0
 
-                    <h2 id="order-count">
+</h2>
 
-                        0
+</div>
 
-                    </h2>
 
-                </div>
 
+<div class="card">
 
+<h3>Total Revenue</h3>
 
-                <div class="card">
+<h2 id="revenue-count">
 
-                    <h3>Total Revenue</h3>
+₹0
 
-                    <h2 id="revenue-count">
+</h2>
 
-                        ₹0
+</div>
 
-                    </h2>
 
-                </div>
 
+<div class="card">
 
+<h3>Total Expenses</h3>
 
-                <div class="card">
+<h2 id="expense-count">
 
-                    <h3>Total Expenses</h3>
+₹0
 
-                    <h2 id="expense-count">
+</h2>
 
-                        ₹0
+</div>
 
-                    </h2>
+</div>
 
-                </div>
 
-            </div>
 
+<div class="sections">
 
 
-            <div class="sections">
 
-                <div class="box">
+<div class="box">
 
-                    <h2>
+<h2>
 
-                        Recent Orders
+Recent Orders
 
-                    </h2>
+</h2>
 
-                    <ul id="recent-orders">
+<ul id="recent-orders">
 
-                        <li>
+<li>
 
-                            Loading...
+Loading...
 
-                        </li>
+</li>
 
-                    </ul>
+</ul>
 
-                </div>
+</div>
 
 
 
-                <div class="box">
+<div class="box">
 
-                    <h2>
+<h2>
 
-                        Pending Orders
+Pending Orders
 
-                    </h2>
+</h2>
 
-                    <ul id="pending-orders">
+<ul id="pending-orders">
 
-                        <li>
+<li>
 
-                            Loading...
+Loading...
 
-                        </li>
+</li>
 
-                    </ul>
+</ul>
 
-                </div>
+</div>
 
-            </div>
 
-        </main>
 
-    </div>
+<div class="box">
 
+<h2>
 
+Today's Deliveries
 
-    <script src="js/api.js"></script>
+</h2>
 
-    <script src="js/script.js"></script>
+<ul id="today-deliveries">
+
+<li>
+
+No deliveries today
+
+</li>
+
+</ul>
+
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+
+TailorTrack © 2026 | Built by Prabhu
+
+</footer>
+
+</main>
+
+</div>
+
+
+
+<script src="js/api.js"></script>
+
+<script src="js/script.js"></script>
 
 </body>
 
