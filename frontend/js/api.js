@@ -1,4 +1,4 @@
-const BASE_URL = "https://tailortrack-backend.onrender.com/api/";
+const BASE_URL = "https://tailortrack-backend.onrender.com/api";
 
 async function fetchData(endpoint){
 
