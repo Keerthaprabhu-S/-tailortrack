@@ -5,26 +5,24 @@ try {
 const customers =
 await fetchData("customers");
 
-
 const orders =
 await fetchData("orders");
 
-
 const payments =
 await fetchData("payments");
-
 
 const expenses =
 await fetchData("expenses");
 
 
+document.getElementById(
+"customer-count"
+).innerText = customers.length;
 
-document.getElementById("customer-count")
-.innerText = customers.length;
 
-
-document.getElementById("order-count")
-.innerText = orders.length;
+document.getElementById(
+"order-count"
+).innerText = orders.length;
 
 
 
@@ -39,9 +37,9 @@ payment.amount_paid || 0
 });
 
 
-document.getElementById("revenue-count")
-.innerText = `₹${revenue}`;
-
+document.getElementById(
+"revenue-count"
+).innerText = `₹${revenue}`;
 
 
 
@@ -56,23 +54,106 @@ expense.amount || 0
 });
 
 
-document.getElementById("expense-count")
-.innerText = `₹${totalExpense}`;
+document.getElementById(
+"expense-count"
+).innerText = `₹${totalExpense}`;
 
 
+
+/* Status cards */
+
+const pending =
+
+orders.filter(order=>
+
+order.status === "pending"
+
+).length;
+
+
+const stitching =
+
+orders.filter(order=>
+
+order.status === "stitching"
+
+).length;
+
+
+const ready =
+
+orders.filter(order=>
+
+order.status === "ready"
+
+).length;
+
+
+const delivered =
+
+orders.filter(order=>
+
+order.status === "delivered"
+
+).length;
+
+
+
+document.getElementById(
+
+"pending-count"
+
+).innerText = pending;
+
+
+document.getElementById(
+
+"stitching-count"
+
+).innerText = stitching;
+
+
+document.getElementById(
+
+"ready-count"
+
+).innerText = ready;
+
+
+document.getElementById(
+
+"delivered-count"
+
+).innerText = delivered;
+
+
+
+/* Recent Orders */
 
 const recentOrders =
-document.getElementById("recent-orders");
+
+document.getElementById(
+
+"recent-orders"
+
+);
 
 recentOrders.innerHTML = "";
 
-orders.slice(0,5).forEach(order=>{
+
+orders.slice(0,5)
+
+.forEach(order=>{
 
 recentOrders.innerHTML += `
 
 <li>
 
-${order.dress_type} - ${order.status}
+${order.dress_type}
+
+-
+
+${order.status}
 
 </li>
 
@@ -82,17 +163,26 @@ ${order.dress_type} - ${order.status}
 
 
 
+/* Pending Orders */
 
 const pendingOrders =
-document.getElementById("pending-orders");
+
+document.getElementById(
+
+"pending-orders"
+
+);
 
 pendingOrders.innerHTML = "";
 
+
 orders
+
 .filter(order=>
 
-order.status.toLowerCase()
-=== "pending"
+order.status ===
+
+"pending"
 
 )
 
@@ -112,23 +202,35 @@ ${order.dress_type}
 
 
 
+/* Today's Deliveries */
 
 const todayDeliveries =
-document.getElementById("today-deliveries");
+
+document.getElementById(
+
+"today-deliveries"
+
+);
 
 todayDeliveries.innerHTML = "";
 
 
 const today =
+
 new Date()
+
 .toISOString()
+
 .split("T")[0];
 
 
+const deliveries =
 
-const deliveries = orders.filter(order=>
+orders.filter(order=>
 
-order.delivery_date === today
+order.delivery_date
+
+=== today
 
 );
 
@@ -169,6 +271,5 @@ console.log(error);
 }
 
 }
-
 
 loadDashboard();
