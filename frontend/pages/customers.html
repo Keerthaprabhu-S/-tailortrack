@@ -6,13 +6,11 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Customers</title>
 
-<link rel="stylesheet"
-href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -106,6 +104,70 @@ Expenses
 
 <div class="box">
 
+<!-- Add Customer Section -->
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+
+<input
+
+id="customer-name"
+
+type="text"
+
+placeholder="Customer Name"
+
+style="padding:12px;flex:1;min-width:180px;"
+
+>
+
+
+
+<input
+
+id="customer-phone"
+
+type="text"
+
+placeholder="Phone"
+
+style="padding:12px;flex:1;min-width:180px;"
+
+>
+
+
+
+<input
+
+id="customer-address"
+
+type="text"
+
+placeholder="Address"
+
+style="padding:12px;flex:1;min-width:180px;"
+
+>
+
+
+
+<button
+
+id="add-customer-btn"
+
+style="padding:12px 20px;cursor:pointer;"
+
+>
+
++ Add Customer
+
+</button>
+
+</div>
+
+
+
+<!-- Search -->
+
 <input
 
 id="customer-search"
@@ -132,6 +194,8 @@ font-size:16px;
 
 
 
+<!-- Table -->
+
 <table id="customers-table">
 
 <thead>
@@ -143,6 +207,8 @@ font-size:16px;
 <th>Phone</th>
 
 <th>Address</th>
+
+<th>Actions</th>
 
 </tr>
 
