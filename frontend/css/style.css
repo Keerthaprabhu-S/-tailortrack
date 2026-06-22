@@ -297,3 +297,43 @@ overflow-x:auto;
 }
 
 }
+button{
+
+    padding:10px 15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+.edit-btn{
+
+    background:#4f46e5;
+
+    color:white;
+
+    margin-right:10px;
+
+}
+
+
+.delete-btn{
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+
+.edit-btn:hover,
+
+.delete-btn:hover{
+
+    opacity:0.9;
+
+}

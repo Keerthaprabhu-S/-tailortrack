@@ -42,7 +42,11 @@ Dashboard
 
 <li class="active">
 
+<a href="customers.html">
+
 Customers
+
+</a>
 
 </li>
 
@@ -104,9 +108,9 @@ Expenses
 
 <div class="box">
 
-<!-- Add Customer Section -->
 
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+
+<div class="customer-form">
 
 <input
 
@@ -115,8 +119,6 @@ id="customer-name"
 type="text"
 
 placeholder="Customer Name"
-
-style="padding:12px;flex:1;min-width:180px;"
 
 >
 
@@ -130,8 +132,6 @@ type="text"
 
 placeholder="Phone"
 
-style="padding:12px;flex:1;min-width:180px;"
-
 >
 
 
@@ -144,8 +144,6 @@ type="text"
 
 placeholder="Address"
 
-style="padding:12px;flex:1;min-width:180px;"
-
 >
 
 
@@ -153,8 +151,6 @@ style="padding:12px;flex:1;min-width:180px;"
 <button
 
 id="add-customer-btn"
-
-style="padding:12px 20px;cursor:pointer;"
 
 >
 
@@ -166,8 +162,6 @@ style="padding:12px 20px;cursor:pointer;"
 
 
 
-<!-- Search -->
-
 <input
 
 id="customer-search"
@@ -176,25 +170,11 @@ type="text"
 
 placeholder="Search customer..."
 
-style="
+class="search-box"
 
-width:100%;
-
-padding:12px;
-
-margin-bottom:20px;
-
-border-radius:10px;
-
-border:1px solid #ccc;
-
-font-size:16px;
-
-">
+>
 
 
-
-<!-- Table -->
 
 <table id="customers-table">
 
@@ -214,13 +194,13 @@ font-size:16px;
 
 </thead>
 
-
-
 <tbody>
 
 </tbody>
 
 </table>
+
+
 
 </div>
 

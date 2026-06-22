@@ -1,16 +1,26 @@
 let customersData = [];
 
+let editingId = null;
 
-async function loadCustomers() {
 
-    customersData = await fetchData("customers");
+async function loadCustomers(){
 
-    renderCustomers(customersData);
+    customersData = await fetchData(
+
+        "customers"
+
+    );
+
+    renderCustomers(
+
+        customersData
+
+    );
 
 }
 
 
-function renderCustomers(data) {
+function renderCustomers(data){
 
     const tbody = document.querySelector(
 
@@ -21,7 +31,7 @@ function renderCustomers(data) {
     tbody.innerHTML = "";
 
 
-    data.forEach(customer => {
+    data.forEach(customer=>{
 
         tbody.innerHTML += `
 
@@ -36,6 +46,19 @@ function renderCustomers(data) {
             <td>
 
                 <button
+
+                class="edit-btn"
+
+                onclick="editCustomer(${customer.id})">
+
+                Edit
+
+                </button>
+
+
+                <button
+
+                class="delete-btn"
 
                 onclick="deleteCustomer(${customer.id})">
 
@@ -54,7 +77,7 @@ function renderCustomers(data) {
 }
 
 
-async function addCustomer() {
+async function addCustomer(){
 
     const name =
 
@@ -62,7 +85,7 @@ async function addCustomer() {
 
             "customer-name"
 
-        ).value;
+        ).value.trim();
 
 
     const phone =
@@ -71,7 +94,7 @@ async function addCustomer() {
 
             "customer-phone"
 
-        ).value;
+        ).value.trim();
 
 
     const address =
@@ -80,10 +103,10 @@ async function addCustomer() {
 
             "customer-address"
 
-        ).value;
+        ).value.trim();
 
 
-    if (
+    if(
 
         !name ||
 
@@ -91,7 +114,7 @@ async function addCustomer() {
 
         !address
 
-    ) {
+    ){
 
         alert(
 
@@ -104,22 +127,160 @@ async function addCustomer() {
     }
 
 
-    await createData(
+    if(editingId){
 
-        "customers",
+        await updateData(
 
-        {
+            "customers",
 
-            name,
+            editingId,
 
-            phone,
+            {
 
-            address
+                name,
 
-        }
+                phone,
+
+                address
+
+            }
+
+        );
+
+
+        editingId = null;
+
+
+        document.getElementById(
+
+            "add-customer-btn"
+
+        ).textContent =
+
+        "+ Add Customer";
+
+    }
+
+    else{
+
+        await createData(
+
+            "customers",
+
+            {
+
+                name,
+
+                phone,
+
+                address
+
+            }
+
+        );
+
+    }
+
+
+    clearForm();
+
+    loadCustomers();
+
+}
+
+
+function editCustomer(id){
+
+    const customer =
+
+        customersData.find(
+
+            c=>c.id===id
+
+        );
+
+
+    if(!customer){
+
+        return;
+
+    }
+
+
+    editingId = id;
+
+
+    document.getElementById(
+
+        "customer-name"
+
+    ).value = customer.name;
+
+
+    document.getElementById(
+
+        "customer-phone"
+
+    ).value = customer.phone;
+
+
+    document.getElementById(
+
+        "customer-address"
+
+    ).value = customer.address;
+
+
+    document.getElementById(
+
+        "add-customer-btn"
+
+    ).textContent =
+
+    "Update Customer";
+
+}
+
+
+async function deleteCustomer(id){
+
+    const confirmDelete = confirm(
+
+        "Delete this customer?"
 
     );
 
+
+    if(
+
+        !confirmDelete
+
+    ){
+
+        return;
+
+    }
+
+
+    await deleteData(
+
+        "customers",
+
+        id
+
+    );
+
+
+    editingId = null;
+
+    clearForm();
+
+    loadCustomers();
+
+}
+
+
+function clearForm(){
 
     document.getElementById(
 
@@ -141,39 +302,6 @@ async function addCustomer() {
 
     ).value = "";
 
-
-    loadCustomers();
-
-}
-
-
-async function deleteCustomer(id) {
-
-    const confirmDelete = confirm(
-
-        "Delete this customer?"
-
-    );
-
-
-    if (!confirmDelete) {
-
-        return;
-
-    }
-
-
-    await deleteData(
-
-        "customers",
-
-        id
-
-    );
-
-
-    loadCustomers();
-
 }
 
 
@@ -181,7 +309,7 @@ document.addEventListener(
 
     "DOMContentLoaded",
 
-    () => {
+    ()=>{
 
         document
 
@@ -212,7 +340,7 @@ document.addEventListener(
 
             "input",
 
-            function () {
+            function(){
 
                 const keyword =
 
@@ -225,13 +353,13 @@ document.addEventListener(
 
                     customersData.filter(
 
-                        customer =>
+                        customer=>
 
-                            customer.name
+                        customer.name
 
-                            .toLowerCase()
+                        .toLowerCase()
 
-                            .includes(keyword)
+                        .includes(keyword)
 
                     );
 
