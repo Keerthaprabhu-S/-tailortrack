@@ -1,3 +1,32 @@
+function formatDate(date){
+
+const d = new Date(date);
+
+const day =
+
+String(d.getDate())
+
+.padStart(2,"0");
+
+
+const month =
+
+String(d.getMonth()+1)
+
+.padStart(2,"0");
+
+
+const year =
+
+d.getFullYear();
+
+
+return `${day}-${month}-${year}`;
+
+}
+
+
+
 async function loadDashboard() {
 
 try {
@@ -67,7 +96,7 @@ payments.forEach(payment=>{
 
 revenue += Number(
 
-payment.amount_paid || 0
+payment.paid_amount || 0
 
 );
 
@@ -263,7 +292,7 @@ ${order.dress_type}
 
 -
 
-${order.delivery_date}
+${formatDate(order.delivery_date)}
 
 -
 
@@ -303,6 +332,18 @@ order.status===
 
 )
 
+.sort(
+
+(a,b)=>
+
+new Date(a.delivery_date)
+
+-
+
+new Date(b.delivery_date)
+
+)
+
 .forEach(order=>{
 
 pendingOrders.innerHTML += `
@@ -313,7 +354,7 @@ ${order.dress_type}
 
 -
 
-${order.delivery_date}
+${formatDate(order.delivery_date)}
 
 </li>
 

@@ -7,11 +7,13 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
+
 content="width=device-width, initial-scale=1.0">
 
 <title>Payments</title>
 
 <link rel="stylesheet"
+
 href="../css/style.css">
 
 </head>
@@ -74,7 +76,11 @@ Tailors
 
 <li class="active">
 
+<a href="payments.html">
+
 Payments
+
+</a>
 
 </li>
 
@@ -92,6 +98,8 @@ Expenses
 
 </aside>
 
+
+
 <main class="main-content">
 
 <div class="top-bar">
@@ -100,7 +108,121 @@ Expenses
 
 </div>
 
+
+
 <div class="box">
+
+<div class="customer-form">
+
+
+
+<input
+
+id="payment-search"
+
+type="text"
+
+placeholder="🔍 Search Order"
+
+>
+
+
+
+<select
+
+id="payment-order"
+
+>
+
+<option value="">
+
+Select Order
+
+</option>
+
+</select>
+
+
+
+<input
+
+id="payment-total"
+
+type="number"
+
+placeholder="Total Amount"
+
+>
+
+
+
+<input
+
+id="payment-paid"
+
+type="number"
+
+placeholder="Paid Amount"
+
+>
+
+
+
+<select
+
+id="payment-method"
+
+>
+
+<option value="cash">
+
+Cash
+
+</option>
+
+<option value="upi">
+
+UPI
+
+</option>
+
+<option value="card">
+
+Card
+
+</option>
+
+</select>
+
+
+
+<input
+
+id="payment-date"
+
+type="date"
+
+>
+
+
+
+<button
+
+id="add-payment-btn"
+
+class="add-btn"
+
+>
+
++ Add Payment
+
+</button>
+
+
+
+</div>
+
+
 
 <table id="payments-table">
 
@@ -108,15 +230,19 @@ Expenses
 
 <tr>
 
-<th>Customer</th>
+<th>Order</th>
 
-<th>Dress</th>
+<th>Total</th>
 
-<th>Amount</th>
+<th>Paid</th>
+
+<th>Remaining</th>
 
 <th>Method</th>
 
 <th>Paid On</th>
+
+<th>Actions</th>
 
 </tr>
 
