@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Expenses</title>
 
-<link rel="stylesheet"
-href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -83,13 +82,19 @@ Payments
 
 <li class="active">
 
+<a href="expenses.html">
+
 Expenses
+
+</a>
 
 </li>
 
 </ul>
 
 </aside>
+
+
 
 <main class="main-content">
 
@@ -99,7 +104,71 @@ Expenses
 
 </div>
 
+
+
 <div class="box">
+
+<div class="customer-form">
+
+
+<input
+
+id="expense-description"
+
+type="text"
+
+placeholder="Description"
+
+>
+
+
+
+<input
+
+id="expense-amount"
+
+type="number"
+
+placeholder="Amount"
+
+>
+<input
+
+id="expense-date"
+
+type="date"
+
+>
+
+<button
+
+id="add-expense-btn"
+
+class="add-btn"
+
+>
+
++ Add Expense
+
+</button>
+
+</div>
+
+
+
+<input
+
+id="expense-search"
+
+type="text"
+
+placeholder="🔍 Search expense..."
+
+class="search-box"
+
+>
+
+
 
 <table id="expenses-table">
 
@@ -107,11 +176,13 @@ Expenses
 
 <tr>
 
-<th>Category</th>
-
 <th>Description</th>
 
 <th>Amount</th>
+
+<th>Date</th>
+
+<th>Actions</th>
 
 </tr>
 

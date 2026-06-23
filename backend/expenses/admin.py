@@ -7,20 +7,27 @@ from .models import Expense
 class ExpenseAdmin(admin.ModelAdmin):
 
     list_display = (
-        'id',
-        'category',
-        'description',
-        'amount',
-        'expense_date',
-        'created_at',
-    )
 
-    search_fields = (
-        'category',
+        'id',
+
         'description',
+
+        'amount',
+
+        'expense_date',
+
+        'created_at'
+
     )
 
     list_filter = (
-        'category',
+
         'expense_date',
+
+    )
+
+    search_fields = (
+
+        'description',
+
     )
