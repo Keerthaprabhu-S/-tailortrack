@@ -191,10 +191,6 @@ ${customer ? customer.name : "Unknown"}
 
 ${order ? order.dress_type : ""}
 
--
-
-${order ? formatDate(order.order_date) : ""}
-
 </td>
 
 <td>
@@ -221,13 +217,15 @@ ${payment.payment_method}
 
 </td>
 
-<td>
+<td class="date-column">
 
 ${formatDate(payment.paid_on)}
 
 </td>
 
 <td>
+
+<div class="action-buttons">
 
 <button
 
@@ -253,6 +251,8 @@ onclick="deletePayment(${payment.id})"
 Delete
 
 </button>
+
+</div>
 
 </td>
 
@@ -391,6 +391,12 @@ data
 
 
 clearForm();
+
+document.getElementById(
+
+"payment-search"
+
+).value = "";
 
 await loadPayments();
 
