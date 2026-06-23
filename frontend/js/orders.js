@@ -6,7 +6,7 @@ let editingId = null;
 
 
 
-async function loadCustomers(){
+async function loadCustomers() {
 
 customersData = await fetchData(
 
@@ -29,7 +29,7 @@ select.innerHTML =
 '<option value="">Select Customer</option>';
 
 
-customersData.forEach(customer=>{
+customersData.forEach(customer => {
 
 select.innerHTML += `
 
@@ -47,7 +47,7 @@ ${customer.name}
 
 
 
-async function loadOrders(){
+async function loadOrders() {
 
 ordersData = await fetchData(
 
@@ -66,7 +66,7 @@ ordersData
 
 
 
-function renderOrders(data){
+function renderOrders(data) {
 
 const tbody =
 
@@ -80,14 +80,14 @@ document.querySelector(
 tbody.innerHTML = "";
 
 
-data.forEach(order=>{
+data.forEach(order => {
 
 
 const customer =
 
 customersData.find(
 
-c=>c.id===order.customer
+c => c.id === order.customer
 
 );
 
@@ -110,13 +110,75 @@ ${order.dress_type}
 
 <td>
 
+${order.order_date}
+
+</td>
+
+<td>
+
 ${order.delivery_date}
 
 </td>
 
 <td>
 
-${order.status}
+<select
+
+class="status-select"
+
+onchange="changeStatus(${order.id},this.value)"
+
+>
+
+<option
+
+value="pending"
+
+${order.status==="pending" ? "selected" : ""}
+
+>
+
+Pending
+
+</option>
+
+<option
+
+value="stitching"
+
+${order.status==="stitching" ? "selected" : ""}
+
+>
+
+Stitching
+
+</option>
+
+<option
+
+value="ready"
+
+${order.status==="ready" ? "selected" : ""}
+
+>
+
+Ready
+
+</option>
+
+<option
+
+value="delivered"
+
+${order.status==="delivered" ? "selected" : ""}
+
+>
+
+Delivered
+
+</option>
+
+</select>
 
 </td>
 
@@ -159,7 +221,7 @@ Delete
 
 
 
-async function addOrder(){
+async function addOrder() {
 
 const customer =
 
@@ -287,7 +349,7 @@ data
 
 clearForm();
 
-loadOrders();
+await loadOrders();
 
 }
 
@@ -299,7 +361,7 @@ const order =
 
 ordersData.find(
 
-o=>o.id===id
+o => o.id === id
 
 );
 
@@ -386,7 +448,56 @@ id
 );
 
 
-loadOrders();
+await loadOrders();
+
+}
+
+
+
+async function changeStatus(id,status){
+
+const order =
+
+ordersData.find(
+
+o => o.id === id
+
+);
+
+
+if(!order){
+
+return;
+
+}
+
+
+await updateData(
+
+"orders",
+
+id,
+
+{
+
+customer:order.customer,
+
+dress_type:order.dress_type,
+
+order_date:order.order_date,
+
+delivery_date:order.delivery_date,
+
+notes:order.notes,
+
+status:status
+
+}
+
+);
+
+
+await loadOrders();
 
 }
 

@@ -534,3 +534,35 @@ color:#555;
 padding-left:4px;
 
 }
+.status-select{
+
+padding:10px;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+font-size:15px;
+
+cursor:pointer;
+
+background:white;
+
+outline:none;
+
+}
+.status-select{
+
+width:140px;
+
+padding:10px;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+font-size:16px;
+
+background:white;
+
+}
