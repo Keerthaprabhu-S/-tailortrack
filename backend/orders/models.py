@@ -67,7 +67,7 @@ class Order(models.Model):
 
     class Meta:
 
-        ordering = ['-delivery_date']
+        ordering = ['delivery_date']
 
 
     def __str__(self):

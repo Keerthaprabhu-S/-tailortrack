@@ -50,8 +50,60 @@ ${customer.name}
 async function loadOrders() {
 
 ordersData = await fetchData(
-
 "orders"
+);
+
+const statusOrder = {
+
+pending:1,
+
+stitching:2,
+
+ready:3,
+
+delivered:4
+
+};
+
+
+ordersData.sort(
+
+(a,b)=>{
+
+if(
+
+statusOrder[a.status]
+
+!==
+
+statusOrder[b.status]
+
+){
+
+return (
+
+statusOrder[a.status]
+
+-
+
+statusOrder[b.status]
+
+);
+
+}
+
+
+return (
+
+new Date(a.delivery_date)
+
+-
+
+new Date(b.delivery_date)
+
+);
+
+}
 
 );
 

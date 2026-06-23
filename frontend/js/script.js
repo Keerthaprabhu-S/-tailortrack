@@ -141,9 +141,26 @@ document.getElementById(
 recentOrders.innerHTML = "";
 
 
-orders.slice(0,5)
+const latestFiveOrders =
 
-.forEach(order=>{
+[...orders]
+
+.sort(
+
+(a,b)=>
+
+new Date(b.created_at)
+
+-
+
+new Date(a.created_at)
+
+)
+
+.slice(0,5);
+
+
+latestFiveOrders.forEach(order=>{
 
 recentOrders.innerHTML += `
 
