@@ -7,22 +7,33 @@ from .models import Order
 class OrderAdmin(admin.ModelAdmin):
 
     list_display = (
-        'id',
-        'customer',
-        'tailor',
-        'dress_type',
-        'amount',
-        'delivery_date',
-        'status',
-    )
 
-    search_fields = (
-        'customer__name',
-        'tailor__name',
+        'id',
+
+        'customer',
+
         'dress_type',
+
+        'order_date',
+
+        'delivery_date',
+
+        'status'
+
     )
 
     list_filter = (
+
         'status',
-        'delivery_date',
+
+        'delivery_date'
+
+    )
+
+    search_fields = (
+
+        'customer__name',
+
+        'dress_type'
+
     )
