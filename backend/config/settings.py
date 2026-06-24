@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'expenses',
 
     'dashboard',
+    
+    'authentication',
 
 ]
 

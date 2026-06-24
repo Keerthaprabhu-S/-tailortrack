@@ -14,7 +14,59 @@
 
 </head>
 
+<script>
+
+document
+
+.getElementById(
+
+"logout-btn"
+
+)
+
+.addEventListener(
+
+"click",
+
+function(){
+
+localStorage.removeItem(
+
+"isLoggedIn"
+
+);
+
+window.location.href =
+
+"login.html";
+
+}
+
+);
+
+</script>
+
 <body>
+
+<script>
+
+if(
+
+localStorage.getItem(
+
+"isLoggedIn"
+
+)!=="true"
+
+){
+
+window.location.href=
+
+"login.html";
+
+}
+
+</script>
 
 <div class="container">
 
@@ -96,14 +148,19 @@ Expenses
 
 <h1>Dashboard</h1>
 
-<div>
+<button
 
-Welcome, Prabhu 👋
+id="logout-btn"
+
+class="delete-btn"
+
+>
+
+Logout
+
+</button>
 
 </div>
-
-</div>
-
 
 <!-- Business Summary -->
 
