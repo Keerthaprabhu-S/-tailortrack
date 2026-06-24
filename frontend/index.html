@@ -14,38 +14,6 @@
 
 </head>
 
-<script>
-
-document
-
-.getElementById(
-
-"logout-btn"
-
-)
-
-.addEventListener(
-
-"click",
-
-function(){
-
-localStorage.removeItem(
-
-"isLoggedIn"
-
-);
-
-window.location.href =
-
-"login.html";
-
-}
-
-);
-
-</script>
-
 <body>
 
 <script>
@@ -161,6 +129,7 @@ Logout
 </button>
 
 </div>
+
 
 <!-- Business Summary -->
 
@@ -296,6 +265,41 @@ TailorTrack © 2026 | Built by Prabhu
 <script src="js/api.js"></script>
 
 <script src="js/script.js"></script>
+
+<script>
+
+const logoutBtn =
+
+document.getElementById(
+
+"logout-btn"
+
+);
+
+
+logoutBtn.addEventListener(
+
+"click",
+
+function(){
+
+localStorage.removeItem(
+
+"isLoggedIn"
+
+);
+
+window.location.replace(
+
+"login.html"
+
+);
+
+}
+
+);
+
+</script>
 
 </body>
 
